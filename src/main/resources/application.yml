@@ -1,0 +1,25 @@
+server:
+ port: 0  
+
+  
+OMDb:
+ api-key: 8e15c125
+ 
+eureka:
+ instance:
+  leaseRenewalIntervalInSeconds: 10
+  instanceId: ${vcap.application.instance_id:${spring.application.name}:${spring.application.instance_id:${random.value}}}
+ client: 
+  registryFetchIntervalSeconds: 5 
+    
+---
+
+spring:
+  profiles: docker
+  
+eureka:
+ instance:
+  hostname: movie-service
+ client:
+  serviceUrl:
+   defaultZone: http://eureka-service:8761/eureka/     
