@@ -1,7 +1,7 @@
 language: java
 cache:
   directories:
-  - $HOME/.m2
+  - "$HOME/.m2"
 jdk:
 - oraclejdk8
 sudo: required
@@ -11,8 +11,12 @@ script:
 - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
 - mvn clean package dockerfile:build dockerfile:push
 before_install:
-  - chmod +x mvnw
+- chmod +x mvnw
 notifications:
   email:
     on_success: never
     on_failure: never
+env:
+  matrix:
+  - secure: e2qN4cogM42o26nUWwHXZqRh6jxZ8Afnis77ySrJ+k6aggl2qsc3+N4nIj1FGfa8yaP+xUp2V8z78z+YGi7hYJXOhQBZUOw7ckSz6rV5WlX+pxyzIh0GdFWMC4sFCYdzOPpOtBOfM1buBE93Mg+5Qb+3CpjYjjI2yyb5KyAvvRLCD19YmTl6vg17eiLdgjKyfCQajWY5tmq7MDY+sDQy6owXLy7lL561WVxNTpaEAnk3axyWXPExXQFeBpYxAuPW6PGinjRxKimD0KmZ4PrFHBGazPzCbApqDJXebzeV+cThnPbHpF0RnpVLqquD9J7HKh1Ig1G7ki9JfG9j3mmoYjmPdqBQeahvak5hL1TQWDRCCX0rVgjZFGvzzTXmyfoyLv9muGGa7DVAveJhNHGvyR6eD5UKfFgaZKTIrUG92USlZJgyVrDEc19xM68T4STfQguFfLJtoEyh3KVL2DJiKenA/evHTu4gyvWCkatA6Ta7vjM0i+7T21KcLLzAZeIbOTZ0RgCvDdB4V1l7Q+w5ZhQD6Ne3bmm55scUqe3NsaVjAZz/cXfHHoc3B6Qwj8KTlwLe4Tx9tcoFTtdx8RRTsdBEqxXAAgOi0fc76bB6bVUYADLemlY6ko8ckwju2igpNET/UWA/u2QTzFrpb6sUSDN2EDlFDJUmu2RWBRF2/Kw=
+  - secure: LJiZzXs+pLrX+jvEWxBq2OEy4ekVoBQF1zk9HGMkWldti2sZcDe+sLSlLXRHKAZdYRHUTrRRvNKRb5Xn0wmfN7Io6TZM0uioJ8WF0nXNaYtKxakyCviS5fwPAjSs8mL1nVZhujcDKk1MB6vu5L1jX4JAM0fQiHpKJuEssklDWU9wkTzq3X+azQ1CeA9EZDrwTVCinef+8pUsClOCdNU8ju5Rs9BJ6OR87Kr5f1tA6yUz8k3o7Y+9LB/bTPhbUvET5jnTwNsoic/3nXvi+spDZL9fDeYLZPXkpjHG0no+s/lxc7TaiaDLThEkjPKfU+CKFic0dDjPPkdQ2ef5l9+f6gZbsAF05lvx+gOmZVbxfnmujxRpdLye/ccSQLQpWLcz9BbQGFPzrw0lamYUIuxsbD1VP9HjKClagiFocNi2c3JJxwVWpEfO+/FRuosTQyi6PyUXrEoEJtp24NaoZZJKoUa8pexql5DqLsCcnZMLe72Xn3i4WhtM2qAL1/Q3G/ais2xksLxBYmusiFyB4zZ9thhfX07wcJ9FtiEcYwVxU41fIjfUt3lI8rpZAYixxLK05295yvrXP/2doipLd6WaFURNvJ7rQNjqgi5Q3OlZvbe3EMeHeRcCLIunwESEIUhMoEqD/keGXMBwpOkvF9CtAzktiuPwrp6fwQpetrkNYPY=
